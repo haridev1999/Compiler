@@ -199,20 +199,13 @@ function condition(cmd)
 				}
 		}
 }
-function f(ans)
-{
-		let con=ans.split(' ')
-		if con[]
-}
 function loop(cmd)
 {
 		let arr=cmd.split('-');
 		let arr1=arr[0].split(';');
 		let arr2=arr[1].split(',');
-		for(f(arr1[0]);multiple(arr1[1]);c(arr1[2]))
-		{
-				arr2.forEach(c);
-		}
+		for (c(arr1[0]);multiple(arr1[1]);c(arr1[2]))
+			arr2.forEach(c)
 }
 function c(strin)
 {
@@ -235,7 +228,6 @@ c('here x is 5 .');
 c('here y is 7 .');
 c('here z is add x y .');
 c('show sub z x .');
-c('show x .');
 c('provided_y greaterthan x and y lesserthan 10-here v is 15 ,here w is 10 ,show add v w , -ifnot-here v is 15 ,here w is 5 ,show sub v w , - .');
-c('aslongas_here a is 0;a lessthan 6;a is add a 1- show a , - .')
-comp('here x is 5 .here y is 7 .here z is add x y .show sub z x .provided_y greaterthan x and y lesserthan 10-here v is 15 ,here w is 10 ,show add v w , -ifnot-here v is 15 ,here w is 5 ,show sub v w , - .');
+c('aslongas_here a is 0;a lesserthan 5;a is add a 1-show a- .')
+comp('here x is 5 .here y is 7 .here z is add x y .show sub z x .provided_y greaterthan x and y lesserthan 10-here v is 15 ,here w is 10 ,show add v w , -ifnot-here v is 15 ,here w is 5 ,show sub v w , - .aslongas_here a is 0;a lesserthan 5;a is add a 1-show a- .');
