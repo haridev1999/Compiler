@@ -1,0 +1,22 @@
+Every line should start with c
+each command should be written within quotes '' inside parantheses eg: c('') 
+A variable can be declared using 2 keywords here and everywhere
+Here variables have a local scope
+Everywhere variables have a global scope
+to add two variables , the syntax is add x and y 
+operations can only done between two variables
+operators used - add (+)
+                 sub (-)
+                 mply(*)
+                 div (\)
+                 is  (=)
+termination is . instead of ;
+to console log use show
+
+Problem 1 :
+A function accepts three parameters. Two numbers and a arthmetic operator. Based on the operator passed , an arthmetic operation is done on the send digits and the final result is returnd.
+
+Problem 2: 
+Return the greatest of the three numbers passed to a function
+
+c(provided_a greaterthan 5-show hello-ifnot-show bye-)
