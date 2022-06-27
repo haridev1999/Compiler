@@ -10,13 +10,23 @@ operators used - add (+)
                  mply(*)
                  div (\)
                  is  (=)
-termination is . instead of ;
-to console log use show
-
-Problem 1 :
-A function accepts three parameters. Two numbers and a arthmetic operator. Based on the operator passed , an arthmetic operation is done on the send digits and the final result is returnd.
-
-Problem 2: 
-Return the greatest of the three numbers passed to a function
-
-c(provided_a greaterthan 5-show hello-ifnot-show bye-)
+          greaterthan(>)
+           lesserthan(<)
+                  and(&&)
+                   or(||)
+               equals(==)
+            notequals(!=)
+key words ['add','sub','mply','div','is','greater','lesser','equals','and','or','no    t','here','always','show','provided','aslongas']
+to console.log use show
+for condition use provided
+for loop use aslongas
+Seperators used [. , - ; _]
+SYNTAX-
+Each line should be se[arated using .
+provided and aslongas should be followed by _
+The blockcode to be executed should be writtten within 2 --
+Each line of code within a block should be separated using , not .
+If two or more separators come together, there should be no space between them 
+All of this should be written inside two '' and brackets ()
+Comp should be given before the opening bracket
+eg : comp('code')
