@@ -204,8 +204,8 @@ function loop(cmd)
 		let arr=cmd.split('-');
 		let arr1=arr[0].split(':');
 		let arr1a=arr1[0].split(',')
-		let arr1b=arr1[2].split(',')
-		let arr2=arr[1].split(',');
+		let arr1b=arr1[2].split(';')
+		let arr2=arr[1].split(';');
 		for (arr1a.forEach(c);multiple(arr1[1]);arr1b.forEach(c))
 			arr2.forEach(c)
 }

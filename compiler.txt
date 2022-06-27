@@ -24,6 +24,7 @@ Seperators used [. , - ; _]
 SYNTAX-
 Each line should be se[arated using .
 provided and aslongas should be followed by _
+multiple variable declarations and increments should be separated using ; in loops
 The blockcode to be executed should be writtten within 2 --
 Each line of code within a block should be separated using , not .
 If two or more separators come together, there should be no space between them 
