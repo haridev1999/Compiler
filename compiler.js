@@ -228,6 +228,6 @@ c('here x is 5 .');
 c('here y is 7 .');
 c('here z is add x y .');
 c('show sub z x .');
-c('provided_y greaterthan x and y lesserthan 10-here v is 15 ,here w is 10 ,show add v w , -ifnot-here v is 15 ,here w is 5 ,show sub v w , - .');
+c('provided_y greaterthan x and y lesserthan 10-here v is 15,here w is 10,show add v w, -ifnot-here v is 15,here w is 5,show sub v w, - .');
 c('aslongas_here a is 0;a lesserthan 5;a is add a 1-show a- .')
 comp('here x is 5 .here y is 7 .here z is add x y .show sub z x .provided_y greaterthan x and y lesserthan 10-here v is 15 ,here w is 10 ,show add v w , -ifnot-here v is 15 ,here w is 5 ,show sub v w , - .aslongas_here a is 0;a lesserthan 5;a is add a 1-show a- .');
