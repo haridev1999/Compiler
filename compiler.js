@@ -221,9 +221,9 @@ function c(strin)
 		else 
 				console.log('Syntax Error!!!')
 }
-function comp(str)
+function comp(stri)
 {
-		let arr=str.split('.');
+		let arr=stri.split('.');
 		arr.forEach(c)
 }
 c('here x is 5 .');
