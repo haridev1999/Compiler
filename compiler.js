@@ -176,7 +176,7 @@ function multiple(cmd)
 }
 function condition(cmd)
 {
-		let arr=cmd.split('-');
+		let arr=cmd.split('+');
 		if (arr[2]==undefined)
 		{
 				if (multiple(arr[0]))
@@ -203,19 +203,20 @@ function loop(cmd)
 {
 		let arr=cmd.split('-');
 		let arr1=arr[0].split(':');
-		let arr1a=arr1[0].split(',')
+		let arr1a=arr1[0].split(';')
 		let arr1b=arr1[2].split(';')
-		let arr2=arr[1].split(';');
+		let arr2=arr[1].split(',');
 		for (arr1a.forEach(c);multiple(arr1[1]);arr1b.forEach(c))
 			arr2.forEach(c)
 }
 function c(strin)
 {
 		let arr=strin.split('_')
-		if(arr.length ==1)
+		let arro=strin.split('?')
+		if(arr.length ==1&&arro.length==1)
 				assign(strin);
-		else if (arr[0] == 'provided')
-				condition(arr[1]);
+		else if (arro[0] == 'provided')
+				condition(arro[1]);
 		else if (arr[0] == 'aslongas')
 				loop(arr[1])
 		else 
@@ -226,10 +227,6 @@ function comp(stri)
 		let arr=stri.split('.');
 		arr.forEach(c)
 }
-c('here x is 5 .');
-c('here y is 7 .');
-c('here z is add x y .');
-c('show sub z x .');
-c('provided_y greaterthan x and y lesserthan 10-here v is 15,here w is 10,show add v w, -ifnot-here v is 15,here w is 5,show sub v w, - .');
-c('aslongas_here a is 0:a lesserthan 5:a is add a 1-show a- .')
-comp('here x is 5 .here y is 7 .here z is add x y .show sub z x .provided_y greaterthan x and y lesserthan 10-here v is 15 ,here w is 10 ,show add v w , -ifnot-here v is 15 ,here w is 5 ,show sub v w , - .aslongas_here a is 0:a lesserthan 5:a is add a 1-show a- .');
+//comp('here x is 5 .here y is 7 .here z is add x y .show sub z x .provided_y greaterthan x and y lesserthan 10+here v is 15 ,here w is 10 ,show add v w , +ifnot+here v is 15 ,here w is 5 ,show sub v w , + .aslongas_here a is 0:a lesserthan 5:a is add a 1-show a- .');
+comp('aslongas_here i is 1:i lesserthan 4:i is add i 1-provided?i equals 2+show iAmTwo+ifnot+show notTwo+-.')
+//comp('aslongas_here i is 0:i lesserthan 5:i is add i 1-here x is 0,aslongas_here j is 0:j lesserthan i:j is add j 1-here x is add x j-show x-');
