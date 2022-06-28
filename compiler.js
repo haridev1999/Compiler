@@ -1,10 +1,12 @@
-let keyWords=['add','sub','mply','div','is','greater','lesser','equals','and','or','not','here','always','show','provided','aslongas'];
+let keyWords=['add','sub','mply','div','modulus','is','greater','lesser','equals','and','or','not','here','always','show','provided','aslongas'];
 const constants={};
 let variables={};
 function operator(str,a,b)
 {
 		let str1;
 		let str2;
+		let x;
+		let y;
 		if (a in variables)
 				str1='variables.';
 		else if (a in constants)
@@ -19,63 +21,43 @@ function operator(str,a,b)
 				console.log('Error! '+b+' is not declared');
 		if (isNaN(parseInt(a))&&isNaN(parseInt(b)))
 		{
-				if (str=='add')
-				        return  eval(str1 + a) + eval(str2 + b);
-		        else if (str=='sub')
-						return  eval(str1 + a) - eval(str2 + b);
-		        else if (str=='mply')
-		                return  eval(str1 + a) * eval(str2 + b);
-				else if (str=='div')
-						return  eval(str1 + a) / eval(str2 + b);
-			    else if (str=='greaterthan')
-		                return  eval(str1 + a) > eval(str2 + b);
-				else if (str=='lesserthan')
-						return  eval(str1 + a) < eval(str2 + b);
-				else if (str =='equals')
-						return  eval(str1 + a) == eval(str2 + b);
-				else if (str =='notequals')
-						return  eval(str1 + a) != eval(str2 + b);
+				x=eval(str1+a);
+				y=eval(str2+b);
 		}
 		else if(isNaN(parseInt(a)) && !(isNaN(parseInt(b))))
 	    {
-		        if (str=='add')
-				        return eval(str1 + a) + parseInt(b);
-				else if (str=='sub')
-						return eval(str1 + a) - parseInt(b);
-		        else if (str=='mply')
-				        return eval(str1 + a) * parseInt(b);
-				else if (str=='div')
-						return eval(str1 + a) / parseInt(b);
-		        else if (str=='greaterthan')
-				        return eval(str1 + a) > parseInt(b);
-				else if (str=='lesserthan')
-						return eval(str1 + a) < parseInt(b);
-				else if (str =='equals')
-						return eval(str1 + a) == parseInt(b);
-				else if (str =='not equals')
-						return eval(str1 + a) != parseInt(b);
+				x=eval(str1+a);
+				y=parseInt(b);
 		}
-        else if(!isNaN(parseInt(a))&&!isNaN(parseInt(b)))
+		else if(!isNaN(parseInt(a))&&!isNaN(parseInt(b)))
 		{
-		        if (str=='add')
-				        return parseInt(a) + parseInt(b);
-				else if (str=='sub')
-				        return parseInt(a) - parseInt(b);
-		        else if (str=='mply')
-						return parseInt(a) * parseInt(b);
-			 	else if (str=='div')
-				        return parseInt(a) / parseInt(b);
-		        else if (str=='greaterthan')
-						return parseInt(a) > parseInt(b);
-		        else if (str=='lesserthan')
-				        return parseInt(a) < parseInt(b);
-				else if (str =='equals')
-						return parseInt(a) == parseInt(b);
-				else if (str =='notequals')
-						return parseInt(a) != parseInt(b);
+				x=parseInt(a);
+				y=parseInt(b);
 		}
 		else 
 				console.log('Error!!!')
+		if (str=='add')
+				return x+y;
+		else if (str=='sub')
+				return x-y;
+		else if (str=='mply')
+				return x*y;
+		else if(str=='div')
+				return x/y;
+		else if (str=='modulus')
+				return x%y;
+		else if (str=='greaterthan')
+				return x>y;
+		else if (str=='lesserthan')
+				return x<y;
+		else if (str=='greaterthanequals')
+				return x>=y;
+		else if (str=='lesserthanequals')
+				return x<=y;
+		else if (str=='equals')
+				return x==y;
+		else if (str=='notequals')
+				return x!=y;
 }
 function generateVar(str,val)
 {
@@ -227,6 +209,6 @@ function comp(stri)
 		let arr=stri.split('.');
 		arr.forEach(c)
 }
-//comp('here x is 5 .here y is 7 .here z is add x y .show sub z x .provided_y greaterthan x and y lesserthan 10+here v is 15 ,here w is 10 ,show add v w , +ifnot+here v is 15 ,here w is 5 ,show sub v w , + .aslongas_here a is 0:a lesserthan 5:a is add a 1-show a- .');
+comp('here x is 5 .here y is 7 .here z is add x y .show sub z x .provided?y greaterthan x and y lesserthan 10+here v is 15 ,here w is 10 ,show add v w , +ifnot+here v is 15 ,here w is 5 ,show sub v w , + .aslongas_here a is 0:a lesserthan 5:a is add a 1-show a- .');
 comp('aslongas_here i is 1:i lesserthan 4:i is add i 1-provided?i equals 2+show iAmTwo+ifnot+show notTwo+-.')
 //comp('aslongas_here i is 0:i lesserthan 5:i is add i 1-here x is 0,aslongas_here j is 0:j lesserthan i:j is add j 1-here x is add x j-show x-');
