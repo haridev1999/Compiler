@@ -16,16 +16,18 @@ operators used - add (+)
                    or(||)
                equals(==)
             notequals(!=)
-key words ['add','sub','mply','div','is','greater','lesser','equals','and','or','no    t','here','always','show','provided','aslongas']
+key words ['add','sub','mply','div','is','greater','lesser','equals','and','or','not','here','always','show','provided','aslongas']
 to console.log use show
 for condition use provided
 for loop use aslongas
-Seperators used [. , - ; _]
+Seperators used [. , - ; _ : + ?]
 SYNTAX-
-Each line should be se[arated using .
-provided and aslongas should be followed by _
+Each line should be separated using .
+provided should be followed by ?
+aslongas should be followed by _
 multiple variable declarations and increments should be separated using ; in loops
-The blockcode to be executed should be writtten within 2 --
+The blockcode to be executed in a loop should be written within two + eg +code+
+The blockcode to be executed in a condition should be written within two - eg -code-
 Each line of code within a block should be separated using , not .
 If two or more separators come together, there should be no space between them 
 All of this should be written inside two '' and brackets ()
