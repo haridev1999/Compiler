@@ -58,13 +58,23 @@ function operator(str,a,b)
 				return x==y;
 		else if (str=='notequals')
 				return x!=y;
+		else 
+				return str;
 }
 function generateVar(str,val)
 {
 		if (keyWords.indexOf(str)==-1 && str in constants)
 				console.log('Error! Cannot change the value of an always variable')
 		else if(keyWords.indexOf(str)==-1 && !(str in constants))
-				eval("variables."+ str +" = " + val);
+		{
+				if (typeof val =='number')
+						eval("variables."+ str +" = " + val);
+			/*	else if (typeof val=='string')
+				{
+						let wor=val.tostring()
+						eval("variables."+str+"="+wor);
+				}*/
+		}
 		else 
 				console.log("Syntax Error "+str+" is a keyword");
 }
@@ -73,7 +83,7 @@ function generateCon(str,val)
 		if(keyWords.indexOf(str)==-1 && !(str in constants) && !(str in variables))
 				eval("constants."+ str +" = " + val);
 		else if (keyWords.indexOf(str)==-1 && str in constants)
-				console.log('Error! Cannot change the value of an always variable')
+				console.log('Error! Cannot change the value of an always variable');
 		else if (keyWords.indexOf(str)==-1 && str in variables)
 				console.log('Error '+str+' is already declared');
 		else
@@ -189,7 +199,81 @@ function loop(cmd)
 		let arr1b=arr1[2].split(';')
 		let arr2=arr[1].split(',');
 		for (arr1a.forEach(c);multiple(arr1[1]);arr1b.forEach(c))
-			arr2.forEach(c)
+			arr2.forEach(c);
+}
+function nestedFor(splitArr)
+{
+        let myCode=``;
+        let signatures=[];
+        let increments=[];
+        let conditions=[];
+        let assignments=[];
+        let statements=[];
+        for(let i=0;i<splitArr.length;i++)
+        {
+                let splits=splitArr[i];
+                console.log(splits);
+                let splitSign=splits[0];
+                let sign=splitSign.split(':')
+                conditions.push(sign[1]);                 
+				assignments.push(sign[0].split(';'));
+                increments.push(sign[2].split(';'));
+                if(i==splitArr.length-1)
+                {
+                    let endStats=[];
+                    statements.push(splits[1].split(','));
+                    for(let j=2;j<splitArr[i].length;j++)
+                    endStats.push(splits[j].split(','));
+                    statements.push(endStats);
+                }
+                else
+                {
+                    statements.push(splits[1].split(','));
+                }
+        }
+        //console.log(signatures);
+        console.log('increments : ',increments);
+		console.log('conditiions : ',conditions);
+        console.log('assignments : ',assignments);
+        console.log('statements : ',statements);
+        for(let i=0;i<splitArr.length;i++)
+        {
+                myCode=myCode + `for(assignments[${i}].forEach(c);multiple('conditions[${i}]')      ;increments[${i}].forEach(c))
+                {statements[1].forEach(c);`;
+                if(i==splitArr.length-1)
+                {
+						let array=statements[statements.length-1];
+                        for(let j=0;j<array.length;j++)
+                        {
+								
+                                myCode=myCode + `} array[${j}].forEach(c)`
+                                if(j==array.length-1)
+                                myCode=myCode + `}`;
+                        }
+                }
+         }
+         console.log(myCode);
+}
+function splitFor(line)
+{
+		let aslongasSplit=line.split('aslongas');
+		aslongasSplit.shift();
+		let splitArray=[];
+		for(let i=0;i<aslongasSplit.length;i++)
+		{
+                let ans1=aslongasSplit[i].split("_");
+                ans1.shift();
+                splitArray.push(ans1);
+        }
+		let finalArray=[];
+		for(let i=0;i<splitArray.length;i++)
+		{
+				finalArray.push(splitArray[i][0].split("-"));
+				if(i==splitArray.length-1)
+						finalArray[i].pop();
+		}
+		console.log(finalArray);
+		nestedFor(finalArray);
 }
 function c(strin)
 {
@@ -199,8 +283,10 @@ function c(strin)
 				assign(strin);
 		else if (arro[0] == 'provided')
 				condition(arro[1]);
-		else if (arr[0] == 'aslongas')
+		else if (arr[0] == 'aslongas' && arr.length==2)
 				loop(arr[1])
+		else if (arr[0] == 'aslongas' && arr.length>=2)
+				splitFor(strin);
 		else 
 				console.log('Syntax Error!!!')
 }
@@ -209,6 +295,16 @@ function comp(stri)
 		let arr=stri.split('.');
 		arr.forEach(c)
 }
-comp('here x is 5 .here y is 7 .here z is add x y .show sub z x .provided?y greaterthan x and y lesserthan 10+here v is 15 ,here w is 10 ,show add v w , +ifnot+here v is 15 ,here w is 5 ,show sub v w , + .aslongas_here a is 0:a lesserthan 5:a is add a 1-show a- .');
-comp('aslongas_here i is 1:i lesserthan 4:i is add i 1-provided?i equals 2+show iAmTwo+ifnot+show notTwo+-.')
-//comp('aslongas_here i is 0:i lesserthan 5:i is add i 1-here x is 0,aslongas_here j is 0:j lesserthan i:j is add j 1-here x is add x j-show x-');
+
+
+
+
+//c('here num is 10');
+//c('show num');
+//c('here word is hello');
+//c('show word');
+//comp('here x is 5 .here y is 7 .here z is add x y .show sub z x .provided?y greaterthan x and y lesserthan 10+here v is 15 ,here w is 10 ,show add v w , +ifnot+here v is 15 ,here w is 5 ,show sub v w , + .aslongas_here a is 0:a lesserthan 5:a is add a 1-show a- .');
+//comp('aslongas_here i is 1:i lesserthan 4:i is add i 1-provided?i equals 2+show iAmTwo+ifnot+show notTwo+-.');
+//comp("aslongas_sign1-stat1 aslongas_sign2-stat2 aslongas_sign3-stat3-stat2-stat1-");
+//comp('aslongas_here i is 0:i lesserthan 5:i is add i 1-here x is 0,aslongas_here is 0:j lesserthan i:j is add j 1-here x is add x j-show x-');
+comp("aslongas_here i is 0:i lesserthan 3:i is add i 1 -show i aslongas_here j is 0:j lesserthan 3:j is add j 1-show 0--");
